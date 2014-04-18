@@ -1,0 +1,44 @@
+
+.LinkedInImg
+{
+
+	background-image: url(../images/Sm_linkedin.gif);
+	width: 24px;
+	height: 23px;
+	
+
+}
+.LinkedInImg:hover
+{
+	background-image: url(../images/Sm_linkedin_over.gif);
+}
+
+#btnLearnMore
+{
+	margin-top:0px;
+}
+
+#personalDesc
+{
+	display:none;
+}
+
+#btnLearnMore {
+    position:relative;
+    width:90px;
+}
+#header1 {
+    color:#39b3d7;
+}
+#header2 {
+    color:#428bca;
+
+}
+#header3 {
+    color:#3c763d;
+}
+
+#footerCenter {
+    width:100%;
+    text-align:center; 
+}
