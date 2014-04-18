@@ -2,7 +2,7 @@
 $("#btnLearnMore").click(function () {
     $("#personalDesc").toggle("blind", [], 500);
     $("#mainContainer").width()
-    if ( $("#btnLearnMore:contains('Show more')").length > 0)
+    if ($("#btnLearnMore:contains('About Me')").length > 0)
     {
         $("#btnLearnMore").html('&laquo; Hide');
         $("#btnLearnMore").animate({
@@ -11,7 +11,7 @@ $("#btnLearnMore").click(function () {
     }
     else 
     {
-        $("#btnLearnMore").html('Show more &raquo;');
+        $("#btnLearnMore").html('About Me &raquo;');
         $("#btnLearnMore").animate({
             left: "-=" + ($("#mainContainer").width() - $("#btnLearnMore").width()) * 0.99 
         }, 500, function () {$("#btnLearnMore").removeClass("btn-primary").addClass("btn-info");});
