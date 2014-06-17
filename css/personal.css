@@ -1,4 +1,6 @@
-
+ul{
+	margin-left:1em;
+}
 .LinkedInImg
 {
 
@@ -63,13 +65,11 @@ li{
 	text-decoration: none ;
 	color:gray;
 }
-.pagebreak{
-	display:inline ;
-	padding:0;
-	margin:0;
-	page-break-after:always;
+.page-header {
+    padding-bottom:0px !Important;
 }
-@media print
-{
-	.pagebreak {page-break-after:always;}
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
 }
