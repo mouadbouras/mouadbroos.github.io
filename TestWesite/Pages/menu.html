@@ -9,10 +9,15 @@
 <script src="../Scripts/jquery-1.9.1.min.js"></script>
 <script src="../Scripts/jssor.slider.mini.js"></script>
 <Title>Menu</Title>
+    <script> 
+      $(function(){
+        $("#includedContent").load("b.html"); 
+      });
+    </script> 
 </head>
 <body >
-<?php include '../Headers/websiteheader.php'; ?>
 
+<div id="includedContent"></div>
 <div class="divSiteContainer">
   <div class="divSiteContent"> 
     <div id="divMenu">

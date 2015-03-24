@@ -12,11 +12,15 @@
         var jssor_slider1 = new $JssorSlider$('slider1_container', options);
     });
 </script>
+    <script> 
+      $(function(){
+        $("#includedContent").load("b.html"); 
+      });
+    </script> 
 <Title>Index</Title>
 </head>
 <body >
-<?php include '../Headers/websiteheader.php'; ?>
-
+<div id="includedContent"></div>
 <div class="divSiteContainer">
   <div class="divSiteContent"> 
     <div class="divDescription">
