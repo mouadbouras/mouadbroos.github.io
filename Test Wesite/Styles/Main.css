@@ -1,0 +1,67 @@
+body{
+
+	font;Arial, Helvetica, sans-serif;
+	background-image: url(../Images/woodbackground.jpg);
+
+
+}
+.divSiteContainer
+{
+	width:100%;
+	height:auto;
+	text-align:auto;
+}
+.divSiteContent
+{
+	margin:auto;
+	background-color:#FFEFD5;
+	background:rgba(255, 239, 213, 0.9);
+	width:1200px;
+	min-height:600px;
+	height:auto;
+	box-shadow: 0px 15px 25px #000;
+	margin-bottom:100px;
+
+	
+}
+.divDescription
+{
+	margin:60px;
+	padding:20px;
+	border:0px solid darkred;
+
+	width:400px;
+	height:auto;
+	float:left;
+}
+.divDescription h2
+{
+	color:darkred;
+}
+
+.slider1_container{
+	
+	position: relative; 
+	top: 0px; 
+	left: 0px; 
+	width: 500px; 
+	height: 500px;
+
+}
+.slidesContainer
+{
+	width:500px;
+	height:500px;
+	margin-top:60px;
+	margin-right:60px;
+	opacity:1;
+	float:right;
+	z-index:10;
+}
+#description
+{
+	font-family: 'Bilbo Swash Caps', cursive;
+	font-size:18pt;
+	padding:20px;
+
+}
