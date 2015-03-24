@@ -1,0 +1,220 @@
+
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<head>
+<link href='http://fonts.googleapis.com/css?family=Bilbo+Swash+Caps' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../Styles/post.css" />
+<link rel="stylesheet" type="text/css" href="../Styles/main.css" />
+<script src="../Scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	//submit button onclick event. It checks if everything is valid before submiting the button.
+	function submitPost()
+	{
+		var valid = true;
+
+		//checking if all the required field are filled.
+		$('.req').each(function(i, obj) {
+		   if ($(this).val() =="" )
+		   {
+		   		valid= false ;
+		   }
+		});
+
+		//checking if email is valid.
+		if( !isValidEmailAddress( $('#contactEmail').val()) ) {
+		 	valid = false ;
+		 	$(".invalidEmail").css("visibility", "visible");
+		}
+		else
+		{
+			$(".invalidEmail").css("visibility", "hidden");
+		}
+
+
+		//if everything is valid, submit form.
+		if(valid == true)
+		{
+			$("#myForm").submit();
+	
+		}
+		//else show the redstars around stuff that's missing.
+		else
+		{
+			$(".blr").blur();
+			$(".blr2").blur();
+		}
+
+	}
+
+//email validation function using REGEX.
+	function isValidEmailAddress(emailAddress) {
+	    var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
+	    return pattern.test(emailAddress);
+	};
+
+$( document ).ready(function() {
+
+	//JQUERy validation for the number only form fields.
+    	$('.numonly').keydown(function (e) {
+			if (e.shiftKey || e.ctrlKey || e.altKey) {
+				e.preventDefault();
+			} 
+			else {
+				var key = e.keyCode;
+				if (!((key == 8) || (key == 46) || (key >= 35 && key <= 40) || (key >= 48 && key <= 57) || (key >= 96 && key <= 105) || (key==190)||(key==9))) {
+					e.preventDefault();
+				}
+			}
+		});
+
+
+
+//onblurr function which displays the red stars after each input
+	$( ".blr" ).blur(function() {
+  		//alert( "Handler for .blur() called." );
+  		if ($(this).val() == '' ){  			
+    		$(this).parent("td").children( ".redStar").css("visibility", "visible");
+		}
+		else
+		{
+    		$(this).parent("td").children( ".redStar").css("visibility", "hidden");
+		}  
+		if( isValidEmailAddress( $('#contactEmail').val()) ) {
+			$(".invalidEmail").css("visibility", "hidden");
+
+		}
+
+	});	
+		
+	$( ".blr2" ).blur(function() {
+
+		if ($( ".blr2" ).val()=='') {
+			$(".redstar2").css("visibility", "visible");
+		}
+		else
+		{
+			$(".redstar2").css("visibility", "hidden");
+
+		} });
+});
+
+</script>
+<Title>Index</Title>
+</head>
+<body >
+<div id="headerContainer">
+    <?php include '../Headers/websiteheader.php'; ?>
+</div>
+<div  class="mainContent" >
+	<form name="myform" id="myForm" action="post.php"  method="post">
+	<table border="0">
+		<tr>
+			<td colspan="2" align="middle">
+				<span class="lbl lblHeader" > Book Info </span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="courseName" class="lbl" > Class Name :   </label>
+			</td>
+			<td>
+					<input id="courseName" name="courseName" class="textbox blr req"  type="text" size="4" placeholder="SOEN" /> 
+					&nbsp;&nbsp;&nbsp;
+					<span class="redStar" style="color:red;visibility:hidden">*</span>
+
+					<input id="courseNumber"  name="courseNumber" class="textbox blr2 req numonly" type="text" size="3" placeholder="287" /> 
+					<span class="redStar2" style="color:red;visibility:hidden">*</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" >
+				<label for="bookTitle" class="lbl" > Book Title :   </label>
+			</td>
+			<td>
+				<input id="bookTitle" class="textbox blr req"   name="bookTitle"  type="text" placeholder="Introduction to boredom"  /> 
+					<span class="redStar" style="color:red;visibility:hidden">*</span>
+
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="edition" class="lbl" > Edition :   </label>
+			</td>
+			<td>
+				<input id="edition" class="textbox blr req numonly"   name="edition"  type="text" size="1"  placeholder="8"  /> 
+					<span class="redStar" style="color:red;visibility:hidden">*</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="author" class="lbl" > Author :   </label>
+			</td>
+			<td>
+				<input id="author" class="textbox blr req"   name="author"  type="text" placeholder="John Do" /> 
+					<span class="redStar" style="color:red;visibility:hidden">*</span>
+			</td>
+
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="price" class="lbl" > Asking Price :   </label>
+			</td>
+			<td>
+				<input id="price" name="price" class="textbox blr req numonly" type="text" placeholder="$40.00" /> 
+					<span class="redStar" style="color:red;visibility:hidden">*</span>
+			</td>
+
+		</tr>
+		<tr>
+			<td colspan="2" align="middle">
+				<span class="lbl lblHeader" > Contact Info </span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="contactName" class="lbl" > Name :   </label>
+			</td>
+			<td>
+				<input id="contactName" name="contactName" class="textbox blr req" type="text" placeholder="Julio Smith" /> 
+					<span class="redStar" style="color:red;visibility:hidden">*</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label for="contactEmail" class="lbl" > Email :   </label>
+			</td>
+			<td>
+				<input id="contactEmail" name="contactEmail" class="textbox blr req emailfield" type="text" placeholder="JSmith@example.com" /> 
+					<span class="redStar" style="color:red;visibility:hidden">*</span>
+					<span class="invalidEmail" style="color:red;visibility:hidden">Invalid Email.</span>
+
+			</td>
+
+		</tr>
+		</table>
+	</form>
+		<table  style="width:520px">
+			<tr>
+				<td colspan="2" align="middle">
+					<button class="myBotton"   onClick="submitPost()"  > ExBook </button>
+				</td>
+			</tr>
+
+
+		</table>
+
+
+
+
+
+</div>
+
+
+</body>
+
+
+
+
+</html>
