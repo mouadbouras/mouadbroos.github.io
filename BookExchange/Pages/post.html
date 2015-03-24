@@ -101,12 +101,15 @@ $( document ).ready(function() {
 });
 
 </script>
+    <script> 
+	    $(function(){
+	      $("#headerContainer").load("../Headers/websiteheader.html"); 
+	    });
+    </script> 
 <Title>Index</Title>
 </head>
 <body >
-<div id="headerContainer">
-    <?php include '../Headers/websiteheader.php'; ?>
-</div>
+<div id="headerContainer"></div>
 <div  class="mainContent" >
 	<form name="myform" id="myForm" action="post.php"  method="post">
 	<table border="0">
